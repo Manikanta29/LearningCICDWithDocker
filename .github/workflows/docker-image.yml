@@ -2,9 +2,11 @@ name:  Build and push Docker image
 
 on:
   push:
-    branches: [ main ]
+    branches: 
+          - main
   pull_request:
-    branches: [ main ]  
+    branches: 
+          - main 
 
 jobs:
   build-and-push:
@@ -22,7 +24,7 @@ jobs:
 
     # // This action sets up Docker Buildx, which is a Docker CLI plugin that extends the capabilities of Docker Build. It allows you to build multi-platform images and use advanced features like caching and parallel builds.
     - name: Set up Docker Buildx  
-      uses: docker/setup-buildx-action@v2    
+      uses: docker/setup-buildx-action@v3    
 
     - name: Build and push Docker image
       uses: docker/build-push-action@v6
@@ -32,4 +34,6 @@ jobs:
         push: true
         tags: |
         ${{ secrets.DOCKERHUB_USERNAME }}/simple-flask-app:latest
-        ${{ secrets.DOCKERHUB_USERNAME }}/simple-flask-app:${{ github.sha }} 
+        ${{ secrets.DOCKERHUB_USERNAME }}/simple-flask-app:${{ github.sha }}
+
+        
