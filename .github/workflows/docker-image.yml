@@ -33,7 +33,7 @@ jobs:
         file: ./Dockerfile
         push: true
         tags: |
-        ${{ secrets.DOCKERHUB_USERNAME }}/simple-flask-app:latest
-        ${{ secrets.DOCKERHUB_USERNAME }}/simple-flask-app:${{ github.sha }}
+          ${{ secrets.DOCKERHUB_USERNAME }}/simple-flask-app:latest
+          ${{ secrets.DOCKERHUB_USERNAME }}/simple-flask-app:${{ github.sha }}
 
         
